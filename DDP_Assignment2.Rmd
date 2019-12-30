@@ -1,0 +1,31 @@
+---
+title: "DDP_Assignment2"
+date: "Monday, December 30, 2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE,message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE,
+	cache = TRUE,
+	tidy = TRUE,
+	tidy.opts = list(width.cutoff = 60)
+)
+```
+
+## Overview{.smaller}
+
+This web page consists of an html format presentation. The presentation is written in R Markdown and contains a plot created with Plotly. This work was done on Monday, December 30, 2019 and is hosted on NeoCities open source servers.
+
+The plot will rely on the 'uspop' data set in R and display the population of USA over time.
+
+## Interactive Plot
+
+```{r echo=FALSE}
+library(datasets)
+library(plotly)
+data(uspop)
+plot_ly(x=~time(uspop),y=~uspop,type="scatter",mode="lines+markers") %>% layout(title = "USA Total Population per Year", xaxis = list(title = "Year"),yaxis = list(title = "Population (million people)"))
+```
